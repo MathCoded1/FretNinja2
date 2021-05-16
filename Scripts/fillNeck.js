@@ -1,10 +1,10 @@
 
-tuning = ["E", "A", "D", "G", "B", "E"];
+var tuning = ["E", "A", "D", "G", "B", "E"];
 var fretNums = "     0    "
-for( i = 1; i < 11; i ++){
+for( var i = 1; i < 11; i ++){
     fretNums +="    "+i+"    ";
 }
-for( i = 11; i < 22; i ++){
+for( var i = 11; i < 22; i ++){
     fretNums +="   "+i+"    ";
 }
 var fretLines="------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
@@ -14,19 +14,18 @@ var str = "||   ";
 for( i = 0; i < 12; i++){
 str += a[i]+"  ||   ";
 }
-for (i = 0; i < 10; i++){
+for ( i = 0; i < 10; i++){
     str += a[i]+"  ||   ";
 }
 return str;
 }
+
 console.log(fretNums);
 console.log(fretLines);
-console.log(fillstr(change(tuning[5])));
-console.log(fillstr(change(tuning[4])));
-console.log(fillstr(change(tuning[3])));
-console.log(fillstr(change(tuning[2])));
-console.log(fillstr(change(tuning[1])));
-console.log(fillstr(change(tuning[0])));
+var tuningMod=tuning.reverse();
+for( j = 0; j < 6; j++){
+    console.log(fillstr(change(tuningMod[j])));
+}
 console.log(fretLines);
 console.log(fretNums);
 
