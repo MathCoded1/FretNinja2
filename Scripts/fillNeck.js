@@ -1,53 +1,64 @@
 
-tuning = ["E", "A", "D", "G", "B", "E"]
-
-var fretNums ="     0        1        2        3        4        5        6        7        8        9        10       11       12       13       14       15       16       17       18       19       20       21"
-var fretLines="------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
-function fillstr(root){
-var a = fillarr(root)
-return "||   "+a[0]+"  ||   "+a[1]+"  ||   "+a[2]+"  ||   "+a[3]+"  ||   "+a[5]+"  ||   "+a[6]+"  ||   "+a[7]+"  ||   "+a[8]+"  ||   "+a[9]+"  ||   "+a[10]+"  ||   "+a[11]+"  ||   "+a[0]+"  ||   "+a[1]+"  ||   "+a[2]+"  ||   "+a[3]+"  ||   "+a[4]+"  ||   "+a[5]+"  ||   "+a[6]+"  ||   "+a[7]+"  ||   "+a[8]+"  ||   "+a[9]+"  ||   "+a[10]+"  ||"
-
-};
-console.log(fretNums)
-console.log(fretLines)
-console.log(fillstr(change(tuning[5])))
-console.log(fillstr(change(tuning[4])))
-console.log(fillstr(change(turning[3])))
-console.log(fillstr(change(tuning[2])))
-console.log(fillstr(change(tuning[1])))
-console.log(fillstr(change(tuning[0])))
-console.log(fretLines)
-console.log(fretNums)
+tuning = ["E", "A", "D", "G", "B", "E"];
+var fretNums = "     0    "
+for( i = 1; i < 11; i ++){
+    fretNums +="    "+i+"    ";
+}
+for( i = 11; i < 22; i ++){
+    fretNums +="   "+i+"    ";
+}
+var fretLines="------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+function fillstr(rootNote){
+var a = fillarr(rootNote);
+var str = "||   ";
+for( i = 0; i < 12; i++){
+str += a[i]+"  ||   ";
+}
+for (i = 0; i < 10; i++){
+    str += a[i]+"  ||   ";
+}
+return str;
+}
+console.log(fretNums);
+console.log(fretLines);
+console.log(fillstr(change(tuning[5])));
+console.log(fillstr(change(tuning[4])));
+console.log(fillstr(change(tuning[3])));
+console.log(fillstr(change(tuning[2])));
+console.log(fillstr(change(tuning[1])));
+console.log(fillstr(change(tuning[0])));
+console.log(fretLines);
+console.log(fretNums);
 
 
 function change(note){
     switch(note){
     case "G":
-    return 1 
+    return 1;
     case "G#":
-    return 2
+    return 2;
     case "A":
-    return 3
+    return 3;
     case "A#":
-    return 4
+    return 4;
     case "B":
-    return 5
+    return 5;
     case "C":
-    return 6
+    return 6;
     case "C#":
-    return 7
+    return 7;
     case "D":
-    return 8
+    return 8;
     case "D#":
-    return 9
+    return 9;
     case "E":
-    return 10
+    return 10;
     case "F":
-    return 11
+    return 11;
     case "F#":
-    return 12
+    return 12;
     }
-    };
+    }
 
 
 
@@ -55,53 +66,53 @@ function change(note){
 function changeBack(position){
 switch(position){
 case 1:
-return "G " 
+return "G "; 
 case 2:
-return "G#"
+return "G#";
 case 3:
-return "A "
+return "A ";
 case 4:
-return "A#"
+return "A#";
 case 5:
-return "B "
+return "B ";
 case 6:
-return "C "
+return "C ";
 case 7:
-return "C#"
+return "C#";
 case 8:
-return "D "
+return "D ";
 case 9:
-return "D#"
+return "D#";
 case 10:
-return "E "
+return "E ";
 case 11:
-return "F "
+return "F ";
 case 12:
-return "F#"
+return "F#";
 }
-};
+}
 
 function fillarr(zeroth){
-var a = new Array(12)
-a[0] = changeBack(zeroth)
-a[1] = changeBack(add(zeroth,1))
-a[2] = changeBack(add(zeroth,2))
-a[3] = changeBack(add(zeroth,3))
-a[4] = changeBack(add(zeroth,4))
-a[5] = changeBack(add(zeroth,5))
-a[6] = changeBack(add(zeroth,6))
-a[7] = changeBack(add(zeroth,7))
-a[8] = changeBack(add(zeroth,8))
-a[9] = changeBack(add(zeroth,9))
-a[10] = changeBack(add(zeroth,10))
-a[11] = changeBack(add(zeroth,11))
-return a
-};
+var a = new Array(12);
+a[0] = changeBack(zeroth);
+a[1] = changeBack(add(zeroth,1));
+a[2] = changeBack(add(zeroth,2));
+a[3] = changeBack(add(zeroth,3));
+a[4] = changeBack(add(zeroth,4));
+a[5] = changeBack(add(zeroth,5));
+a[6] = changeBack(add(zeroth,6));
+a[7] = changeBack(add(zeroth,7));
+a[8] = changeBack(add(zeroth,8));
+a[9] = changeBack(add(zeroth,9));
+a[10] = changeBack(add(zeroth,10));
+a[11] = changeBack(add(zeroth,11));
+return a;
+}
 
 function add(num1, num2){
-if (num1 +num2 <=12){
-return num1 +num2}
+if (num1 + num2 <=12){
+return num1 + num2;}
 else{
 return num1 + num2 - 11;
 }
-};
+}
