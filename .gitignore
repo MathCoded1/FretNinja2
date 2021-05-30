@@ -1,3 +1,6 @@
+#Python Venv
+*/venv/*
+
 # compiled output
 /dist
 /tmp
