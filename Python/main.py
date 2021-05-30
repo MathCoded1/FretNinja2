@@ -198,346 +198,576 @@ class Fret5String6(Button, Fret):
         self.text = 'A'
 
 class Fret6String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret6String1, self).__init__(**kwargs)
+        self.text = 'A#'
 
 class Fret6String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret6String2, self).__init__(**kwargs)
+        self.text = 'D#'
 
 class Fret6String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret6String3, self).__init__(**kwargs)
+        self.text = 'G#'
 
 class Fret6String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret6String4, self).__init__(**kwargs)
+        self.text = 'C#'
 
 class Fret6String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret6String5, self).__init__(**kwargs)
+        self.text = 'F'
 
 class Fret6String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret6String6, self).__init__(**kwargs)
+        self.text = 'A#'
 
 class Fret7String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret7String1, self).__init__(**kwargs)
+        self.text = 'B'
 
 class Fret7String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret7String2, self).__init__(**kwargs)
+        self.text = 'E'
 
 class Fret7String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret7String3, self).__init__(**kwargs)
+        self.text = 'A'
 
 class Fret7String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret7String4, self).__init__(**kwargs)
+        self.text = 'D'
 
 class Fret7String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret7String5, self).__init__(**kwargs)
+        self.text = 'F#'
 
 class Fret7String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret7String6, self).__init__(**kwargs)
+        self.text = 'B'
 
 class Fret8String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret8String1, self).__init__(**kwargs)
+        self.text = 'C'
 
 class Fret8String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret8String2, self).__init__(**kwargs)
+        self.text = 'F'
 
 class Fret8String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret8String3, self).__init__(**kwargs)
+        self.text = 'A#'
 
 class Fret8String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret8String4, self).__init__(**kwargs)
+        self.text = 'D#'
 
 class Fret8String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret8String5, self).__init__(**kwargs)
+        self.text = 'G'
 
 class Fret8String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret8String6, self).__init__(**kwargs)
+        self.text = 'C'
 
 class Fret9String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret9String1, self).__init__(**kwargs)
+        self.text = 'C#'
 
 class Fret9String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret9String2, self).__init__(**kwargs)
+        self.text = 'F#'
 
 class Fret9String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret9String3, self).__init__(**kwargs)
+        self.text = 'B'
 
 class Fret9String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret9String4, self).__init__(**kwargs)
+        self.text = 'E'
 
 class Fret9String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret9String5, self).__init__(**kwargs)
+        self.text = 'G#'
 
 class Fret9String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret9String6, self).__init__(**kwargs)
+        self.text = 'C#'
 
 class Fret10String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret10String1, self).__init__(**kwargs)
+        self.text = 'D'
 
 class Fret10String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret10String2, self).__init__(**kwargs)
+        self.text = 'G'
 
 class Fret10String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret10String3, self).__init__(**kwargs)
+        self.text = 'C'
 
 class Fret10String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret10String4, self).__init__(**kwargs)
+        self.text = 'F'
 
 class Fret10String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret10String5, self).__init__(**kwargs)
+        self.text = 'A'
 
 class Fret10String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret10String6, self).__init__(**kwargs)
+        self.text = 'D'
 
 class Fret11String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret11String1, self).__init__(**kwargs)
+        self.text = 'D#'
 
 class Fret11String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret11String2, self).__init__(**kwargs)
+        self.text = 'G#'
 
 class Fret11String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret11String3, self).__init__(**kwargs)
+        self.text = 'C#'
 
 class Fret11String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret11String4, self).__init__(**kwargs)
+        self.text = 'F#'
 
 class Fret11String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret11String5, self).__init__(**kwargs)
+        self.text = 'A#'
 
 class Fret11String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret11String6, self).__init__(**kwargs)
+        self.text = 'D#'
 
 class Fret12String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret12String1, self).__init__(**kwargs)
+        self.text = 'E'
 
 class Fret12String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret12String2, self).__init__(**kwargs)
+        self.text = 'A'
 
 class Fret12String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret12String3, self).__init__(**kwargs)
+        self.text = 'D'
 
 class Fret12String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret12String4, self).__init__(**kwargs)
+        self.text = 'G'
 
 class Fret12String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret12String5, self).__init__(**kwargs)
+        self.text = 'B'
 
 class Fret12String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret12String6, self).__init__(**kwargs)
+        self.text = 'E'
 
 class Fret13String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret13String1, self).__init__(**kwargs)
+        self.text = 'F'
 
 class Fret13String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret13String2, self).__init__(**kwargs)
+        self.text = 'A#'
 
 class Fret13String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret13String3, self).__init__(**kwargs)
+        self.text = 'D#'
 
 class Fret13String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret13String4, self).__init__(**kwargs)
+        self.text = 'G#'
 
 class Fret13String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret13String5, self).__init__(**kwargs)
+        self.text = 'C'
 
 class Fret13String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret13String6, self).__init__(**kwargs)
+        self.text = 'F'
 
 class Fret14String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret14String1, self).__init__(**kwargs)
+        self.text = 'F#'
 
 class Fret14String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret14String2, self).__init__(**kwargs)
+        self.text = 'B'
 
 class Fret14String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret14String3, self).__init__(**kwargs)
+        self.text = 'E'
 
 class Fret14String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret14String4, self).__init__(**kwargs)
+        self.text = 'A'
 
 class Fret14String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret14String5, self).__init__(**kwargs)
+        self.text = 'C#'
 
 class Fret14String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret14String6, self).__init__(**kwargs)
+        self.text = 'F#'
 
 class Fret15String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret15String1, self).__init__(**kwargs)
+        self.text = 'G'
 
 class Fret15String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret15String2, self).__init__(**kwargs)
+        self.text = 'C'
 
 class Fret15String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret15String3, self).__init__(**kwargs)
+        self.text = 'F'
 
 class Fret15String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret15String4, self).__init__(**kwargs)
+        self.text = 'A#'
 
 class Fret15String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret15String5, self).__init__(**kwargs)
+        self.text = 'D'
 
 class Fret15String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret15String6, self).__init__(**kwargs)
+        self.text = 'G'
 
 class Fret16String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret16String1, self).__init__(**kwargs)
+        self.text = 'G#'
 
 class Fret16String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret16String2, self).__init__(**kwargs)
+        self.text = 'C#'
 
 class Fret16String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret16String3, self).__init__(**kwargs)
+        self.text = 'F#'
 
 class Fret16String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret16String4, self).__init__(**kwargs)
+        self.text = 'B'
 
 class Fret16String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret16String5, self).__init__(**kwargs)
+        self.text = 'D#'
 
 class Fret16String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret16String6, self).__init__(**kwargs)
+        self.text = 'G#'
 
 class Fret17String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret17String1, self).__init__(**kwargs)
+        self.text = 'A'
 
 class Fret17String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret17String2, self).__init__(**kwargs)
+        self.text = 'D'
 
 class Fret17String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret17String3, self).__init__(**kwargs)
+        self.text = 'G'
 
 class Fret17String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret17String4, self).__init__(**kwargs)
+        self.text = 'C'
 
 class Fret17String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret17String5, self).__init__(**kwargs)
+        self.text = 'E'
+
 
 class Fret17String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret17String6, self).__init__(**kwargs)
+        self.text = 'A'
 
 class Fret18String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret18String1, self).__init__(**kwargs)
+        self.text = 'A#'
 
 class Fret18String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret18String2, self).__init__(**kwargs)
+        self.text = 'D#'
 
 class Fret18String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret18String3, self).__init__(**kwargs)
+        self.text = 'G#'
 
 class Fret18String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret18String4, self).__init__(**kwargs)
+        self.text = 'C#'
 
 class Fret18String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret18String5, self).__init__(**kwargs)
+        self.text = 'F'
 
 class Fret18String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret18String6, self).__init__(**kwargs)
+        self.text = 'A#'
 
 class Fret19String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret19String1, self).__init__(**kwargs)
+        self.text = 'B'
 
 class Fret19String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret19String2, self).__init__(**kwargs)
+        self.text = 'E'
 
 class Fret19String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret19String3, self).__init__(**kwargs)
+        self.text = 'A'
 
 class Fret19String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret19String4, self).__init__(**kwargs)
+        self.text = 'D'
 
 class Fret19String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret19String5, self).__init__(**kwargs)
+        self.text = 'F#'
 
 class Fret19String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret19String6, self).__init__(**kwargs)
+        self.text = 'B'
 
 class Fret20String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret20String1, self).__init__(**kwargs)
+        self.text = 'C'
 
 class Fret20String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret20String2, self).__init__(**kwargs)
+        self.text = 'F'
 
 class Fret20String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret20String3, self).__init__(**kwargs)
+        self.text = 'A#'
 
 class Fret20String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret20String4, self).__init__(**kwargs)
+        self.text = 'D#'
 
 class Fret20String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret20String5, self).__init__(**kwargs)
+        self.text = 'G'
+
 
 class Fret20String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret20String6, self).__init__(**kwargs)
+        self.text = 'C'
 
 class Fret21String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret21String1, self).__init__(**kwargs)
+        self.text = 'C#'
 
 class Fret21String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret21String2, self).__init__(**kwargs)
+        self.text = 'F#'
 
 class Fret21String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret21String3, self).__init__(**kwargs)
+        self.text = 'B'
 
 class Fret21String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret21String4, self).__init__(**kwargs)
+        self.text = 'E'
 
 class Fret21String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret21String5, self).__init__(**kwargs)
+        self.text = 'G#'
 
 class Fret21String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret21String6, self).__init__(**kwargs)
+        self.text = 'C#'
 
 class Fret22String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret22String1, self).__init__(**kwargs)
+        self.text = 'D'
 
 class Fret22String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret22String2, self).__init__(**kwargs)
+        self.text = 'G'
 
 class Fret22String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret22String3, self).__init__(**kwargs)
+        self.text = 'C'
 
 class Fret22String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret22String4, self).__init__(**kwargs)
+        self.text = 'F'
 
 class Fret22String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret22String5, self).__init__(**kwargs)
+        self.text = 'A'
 
 class Fret22String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret22String6, self).__init__(**kwargs)
+        self.text = 'D'
 
 class Fret23String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret23String1, self).__init__(**kwargs)
+        self.text = 'D#'
 
 class Fret23String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret23String2, self).__init__(**kwargs)
+        self.text = 'G#'
 
 class Fret23String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret23String3, self).__init__(**kwargs)
+        self.text = 'C#'
 
 class Fret23String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret23String4, self).__init__(**kwargs)
+        self.text = 'F#'
 
 class Fret23String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret23String5, self).__init__(**kwargs)
+        self.text = 'A#'
 
 class Fret23String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret23String6, self).__init__(**kwargs)
+        self.text = 'D#'
 
 class Fret24String1(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret24String1, self).__init__(**kwargs)
+        self.text = 'E'
 
 class Fret24String2(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret24String2, self).__init__(**kwargs)
+        self.text = 'A'
 
 class Fret24String3(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret24String3, self).__init__(**kwargs)
+        self.text = 'D'
 
 class Fret24String4(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret24String4, self).__init__(**kwargs)
+        self.text = 'G'
 
 class Fret24String5(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret24String5, self).__init__(**kwargs)
+        self.text = 'B'
 
 class Fret24String6(Button, Fret):
-    pass
+    def __init__(self, **kwargs):
+        super(Fret24String6, self).__init__(**kwargs)
+        self.text = 'E'
 
 class Fret0Label(Button, Fret):
     pass
@@ -628,10 +858,10 @@ class GuitarApp(App):
         root = Grid()
         root.add_widget(Fret0String6())
 
-        root.add_widget(Fret1String6(width=20))
-        root.add_widget(Fret2String6(width=20))
-        root.add_widget(Fret3String6(width=20))
-        root.add_widget(Fret4String6(width=20))
+        root.add_widget(Fret1String6())
+        root.add_widget(Fret2String6())
+        root.add_widget(Fret3String6())
+        root.add_widget(Fret4String6())
         root.add_widget(Fret5String6())
         root.add_widget(Fret6String6())
         root.add_widget(Fret7String6())
