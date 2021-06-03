@@ -63,7 +63,7 @@ class GuitarApp(App):
 
         for j in range(fr+1):
             neck.add_widget(Label(text=str(j)))
-        neckScreen.add_widget(neck)gg
+        neckScreen.add_widget(neck)
         return neckScreen
 
 
