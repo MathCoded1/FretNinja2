@@ -68,7 +68,6 @@ class GuitarApp(App):
             notes[k].__init__()
             notes[k].baseNote=strings[notes[k].stringNumber-1]
             notes[k].Set_note(notes[k].baseNote)
-            print(notes[k].stringNumber)
             if notes[k].fretNumber == 0:
                 neck.add_widget(Label(text=str(notes[k].stringNumber)))
             neck.add_widget(notes[k])
