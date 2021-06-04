@@ -8,6 +8,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.widget import Widget
 import noteFinder
 
+
 class GuitarTheory(Widget):
     pass
 class WindowManager(ScreenManager):
@@ -35,10 +36,11 @@ class Fret:
         else:
             self.note = str(noteFinder.findNote(base,self.fretNumber))
             self.text = self.note
+    #def Set_color(self):
 
 class Tuning(DropDown):
     pass
-class empty(Widget):
+class Empty(Widget):
     pass
 class Grid(GridLayout):
     def __init__(self, rows, columns,**kwargs):
@@ -50,11 +52,11 @@ class GuitarApp(App):
     def build(self):
         neckScreen = NeckScreen()
         st = 6
-        frets = 24
-        neck = Grid(st+4, frets+2)
+        frets = 22
+        neck = Grid(st+4, frets+3)
 
-        for j in range(frets+2):
-            neck.add_widget(empty())
+        for j in range(frets+3):
+            neck.add_widget(Empty())
         strings=['E','A','D','G', 'B', 'E']
         notes = []
         #Create Frets dynamically named String'number'Fret'number
@@ -70,13 +72,14 @@ class GuitarApp(App):
             if notes[k].fretNumber == 0:
                 neck.add_widget(Label(text=str(notes[k].stringNumber)))
             neck.add_widget(notes[k])
+            if notes[k].fretNumber == frets:
+                neck.add_widget(Empty())
         #Add Lables for frets
         neck.add_widget(Label(text='#'))
         for j in range(frets+1):
             neck.add_widget(Label(text=str(j)))
         neckScreen.add_widget(neck)
         return neckScreen
-
 
 if __name__ == '__main__':
     GuitarApp().run()
