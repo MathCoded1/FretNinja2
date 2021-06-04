@@ -26,11 +26,16 @@ class Fret:
         else:
             self.fretNumber=int(self.__class__.__name__[nameLength-1])
         self.stringNumber = int(self.__class__.__name__[6])
-        self.BaseNote = "G"
+        self.baseNote = "G"
 
     def Set_note(self, base):
-        self.note = str(noteFinder.findNote(base,self.fretNumber-1))
-        self.text = self.note
+        if self.fretNumber == 0:
+            self.note = self.baseNote
+            self.text = self.note
+        else:
+            self.note = str(noteFinder.findNote(base,self.fretNumber))
+            self.text = self.note
+
 class Tuning(DropDown):
     pass
 class empty(Widget):
@@ -45,23 +50,29 @@ class GuitarApp(App):
     def build(self):
         neckScreen = NeckScreen()
         st = 6
-        fr = 24
-        neck = Grid(st+4, fr+1)
+        frets = 24
+        neck = Grid(st+4, frets+2)
 
-        for j in range(fr+1):
+        for j in range(frets+2):
             neck.add_widget(empty())
-        strings=['E','B','G','D', 'B', 'E']
-        frets = []
+        strings=['E','B','G','D', 'A', 'E']
+        notes = []
+        #Create Frets dynamically named String'number'Fret'number
         for i in range(st):
-            for j in range(fr+1):
-                frets.append(type("String"+str(i+1)+"Fret"+str(j+1),(Button, Fret),{})())
-        for k in range(len(frets)):
-            stringNum = int(frets[k].__class__.__name__[6])
-            frets[k].BaseNote=strings[stringNum-1]
-            frets[k].Set_note(frets[k].BaseNote)
-            neck.add_widget(frets[k])
-
-        for j in range(fr+1):
+            for j in range(frets+1):
+                notes.append(type("String"+str(6-i)+"Fret"+str(j),(Button, Fret),{})())
+        #Assign notes and add to neck
+        for k in range(len(notes)):
+            notes[k].__init__()
+            notes[k].baseNote=strings[notes[k].stringNumber-1]
+            notes[k].Set_note(notes[k].baseNote)
+            print(notes[k].stringNumber)
+            if notes[k].fretNumber == 0:
+                neck.add_widget(Label(text=str(notes[k].stringNumber)))
+            neck.add_widget(notes[k])
+        #Add Lables for frets
+        neck.add_widget(Label(text='#'))
+        for j in range(frets+1):
             neck.add_widget(Label(text=str(j)))
         neckScreen.add_widget(neck)
         return neckScreen
