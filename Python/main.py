@@ -55,7 +55,7 @@ class GuitarApp(App):
 
         for j in range(frets+2):
             neck.add_widget(empty())
-        strings=['E','B','G','D', 'A', 'E']
+        strings=['E','A','D','G', 'B', 'E']
         notes = []
         #Create Frets dynamically named String'number'Fret'number
         for i in range(st):
