@@ -1,3 +1,5 @@
+import kivy.utils
+
 def noteToNumber(note):
     changer ={
     "G": 1,
@@ -31,6 +33,8 @@ def numberToNote(position):
     return changer.get(position)
 
 def add(note1, fret):
+        if fret == 0:
+            return note1
         if note1+fret <=12:
             return note1 + fret
         elif (note1 + fret)%12 != 0:
@@ -41,4 +45,21 @@ def add(note1, fret):
 def findNote(openFret, fret):
     a = numberToNote(add(int(noteToNumber(openFret)), fret))
     return a
+
+def colorNote(note, opacity):
+    noteColors={
+        "A ":(.25,.75,.75,opacity),
+        "A#":(.64901,1,.92157,opacity),
+        "B ":(.39608,.12157,1,opacity),
+        "C ":(.75,0,.341176,opacity),
+        "C#":(.75,.25,.75,opacity),
+        "D ":(1,.75,.25,opacity),
+        "D#":(.7765,1,0,opacity),
+        "E ":(.95686,.262745,.211764,opacity),
+        "F ":(1,0,1,opacity),
+        "F#":(1,0,.75,opacity),
+        "G ":(0,1,0,opacity),
+        "G#":(0,.75,0,opacity),
+    }
+    return noteColors.get(note)
 
