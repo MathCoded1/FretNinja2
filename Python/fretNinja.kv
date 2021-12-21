@@ -1,0 +1,15 @@
+#:kivy 2.0.0
+Manager
+    id: screen_manager
+    screen_one: SetTuningScreen
+    screen_two: NeckScreen
+
+    SetTuningScreen:
+        id: screen_one
+        name: "infoScr"
+        manager: screen_manager
+
+    NeckScreen:
+    id: screen_two
+    name: "neckScr"
+`manager: screen_manager`

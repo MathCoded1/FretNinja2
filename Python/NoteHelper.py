@@ -1,5 +1,3 @@
-import kivy.utils
-
 def noteToNumber(note):
     changer ={
     "G": 1,
