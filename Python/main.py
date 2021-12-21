@@ -1,11 +1,9 @@
 from kivy.app import App
-from kivy.core.window import Window
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
-from kivy.uix.dropdown import DropDown
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
-from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
+from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.widget import Widget
 from Instrument import Instrument as Instrument
 import NoteHelper
@@ -17,13 +15,20 @@ class GuitarTheory(Widget):
 class WindowManager(ScreenManager):
     pass
 
-class NeckScreen(Screen):
-    name = 'neckScr'
-    def create(self):
-        neck = Neck()
-        return neck.buildNeck()
+#class NeckScreen(Screen):
+
+ #   def __init__(self, **kwargs):
+  #      super(NeckScreen,self).__init__(**kwargs)
+   #     self.name = 'neckScr'
+    #def create(self):
+     #   neck = Neck()
+      #  return neck.buildNeck()
+
 class SetTuningScreen(Screen):
-    name = 'infoScr'
+
+    def __init__(self,**kwargs):
+        super(SetTuningScreen,self).__init__(**kwargs)
+        self.name = 'infoScr'
     def create(self):
         info = InstrumentInfo()
         return info.setupInfo()
@@ -72,46 +77,45 @@ class Fret(Button):
             self.fretNumber=int(self.__class__.__name__[nameLength-1])
         self.stringNumber = int(self.__class__.__name__[6])
 class InstrumentInfo:
-
-    def __init__(self):
-        self.btn = Button(text='Guitar')
-        self.btn2 = Button(text='Bass')
-
+    instrument = Instrument()
     def callback(self,instance,a,b):
-        Instrument.type = 'GUITAR'
+        self.instrument.type = 'GUITAR'
         a.remove_widget(b)
         self.stringSelect(a)
 
     def callback2(self, instance,a,b):
-        Instrument.type = 'BASS'
+        self.instrument.type = 'BASS'
         a.remove_widget(b)
         self.stringSelect(a)
 
     def setupInfo(self):
         tuningScreen = SetTuningScreen()
         InstrumentSelector = BoxLayout(orientation='vertical')
-        self.btn.bind(on_press=lambda instance : self.callback(instance,tuningScreen,InstrumentSelector))
-        self.btn2.bind(on_press=lambda instance: self.callback2(instance,tuningScreen,InstrumentSelector))
-        InstrumentSelector.add_widget(self.btn)
-        InstrumentSelector.add_widget(self.btn2)
+        btn = Button(text='Guitar')
+        btn2 = Button(text='Bass')
+        btn.bind(on_press=lambda instance : self.callback(instance,tuningScreen,InstrumentSelector))
+        btn2.bind(on_press=lambda instance: self.callback2(instance,tuningScreen,InstrumentSelector))
+        InstrumentSelector.add_widget(btn)
+        InstrumentSelector.add_widget(btn2)
         tuningScreen.add_widget(InstrumentSelector)
         return tuningScreen
 
     def callback3(self, instance,tuningScreen,stringSelector):
-        Instrument.numberOfStrings = 6
+        self.instrument.numberOfStrings = 6
         tuningScreen.remove_widget(stringSelector)
         self.fretSelect(tuningScreen)
 
     def callback4(self,instance, tuningScreen,stringSelector):
-        Instrument.numberOfStrings = 7
+        self.instrument.numberOfStrings = 7
         tuningScreen.remove_widget(stringSelector)
         self.fretSelect(tuningScreen)
+
     def callback5(self, instance,tuningScreen,stringSelector):
-        Instrument.numberOfStrings = 4
+        self.instrument.numberOfStrings = 4
         tuningScreen.remove_widget(stringSelector)
         self.fretSelect(tuningScreen)
     def callback6(self, instance,tuningScreen,stringSelector):
-        Instrument.numberOfStrings = 5
+        self.nstrument.numberOfStrings = 5
         tuningScreen.remove_widget(stringSelector)
         self.fretSelect(tuningScreen)
     def stringSelect(self,tuningScreen):
@@ -136,12 +140,12 @@ class InstrumentInfo:
         tuningScreen.add_widget(stringSelector)
 
     def callback7(self,instance,tuningScreen,numberOfFretsSelector):
-        Instrument.numberOfFrets = 22
+        self.instrument.numberOfFrets = 22
         tuningScreen.remove_widget(numberOfFretsSelector)
         self.tuningSelect(tuningScreen)
 
     def callback8(self,instance,tuningScreen,numberOfFretsSelector):
-        Instrument.numberOfFrets = 24
+        self.instrument.numberOfFrets = 24
         tuningScreen.remove_widget(numberOfFretsSelector)
         self.tuningSelect(tuningScreen)
 
@@ -156,20 +160,153 @@ class InstrumentInfo:
         tuningScreen.add_widget(numberOfFretsSelector)
 
     def callback9(self,instance,tuningScreen,tuningSelector):
-        Instrument.tuning = ['E', 'A' , 'D' ,'G' , 'B', 'E']
+        self.instrument.tuningStyle = 'STANDARD'
         tuningScreen.remove_widget(tuningSelector)
-        tuningScreen.manager.current = 'NeckScreen'
+        self.rootNoteSelect(tuningScreen)
+    def callback10(self,instance,tuningScreen,tuningSelector):
+        self.instrument.tuningStyle = 'DROP'
+        tuningScreen.remove_widget(tuningSelector)
+        self.rootNoteSelect(tuningScreen)
+    def callback11(self,instance, tuningScreen,tuningSelector):
+        self.instrument.tuningStyle = 'OPEN'
+        tuningScreen.remove_widget(tuningSelector)
+        self.rootNoteSelect(tuningScreen)
+    def callback12(self,instance, tuningScreen,tuningSelector):
+        self.instrument.tuningStyle = 'CUSTOM'
+        tuningScreen.remove_widget(tuningSelector)
+        self.rootNoteSelect(tuningSelector)
 
     def tuningSelect(self,tuningScreen):
         tuningSelector=BoxLayout()
 
-        tuningSelector.text = 'What tuning is your ' + str(Instrument.numberOfStrings) + ' ' + Instrument.type + ' in?'
-        if Instrument.type is 'GUITAR' and Instrument.numberOfStrings is 6:
-            btn7 = Button(text = 'Standard')
+        tuningSelector.text = 'What tuning is your ' + str(self.instrument.numberOfStrings) + ' ' + Instrument.type + ' in?'
+        if self.instrument.type is 'GUITAR':
+            btn7 = Button(text='Standard')
+            btn8=Button(text='Drop')
+            btn9=Button(text='Open')
+            btn10=Button(text='Custom')
             btn7.bind(on_press=lambda instance:self.callback9(instance,tuningScreen,tuningSelector))
+            btn8.bind(on_press= lambda instance:self.callback10(instance, tuningScreen,tuningSelector))
+            btn9.bind(on_press=lambda instance:self.callback11(instance,tuningScreen,tuningSelector))
+            btn10.bind(on_press=lambda instance: self.callback12(instance, tuningScreen, tuningSelector))
             tuningSelector.add_widget(btn7)
+            tuningSelector.add_widget(btn8)
+            tuningSelector.add_widget(btn9)
+            tuningSelector.add_widget(btn10)
         tuningScreen.add_widget(tuningSelector)
+    def callback13(self,instance,tuningScreen,rootNoteSelector):
+        self.instrument.rootNote='E '
+        tuningScreen.remove_widget(rootNoteSelector)
+        self.instrument.calculate()
 
+        neck = Neck(self.instrument)
+        neck.buildNeck(tuningScreen)
+    def callback14(self,instance,tuningScreen,rootNoteSelector):
+        self.instrument.rootNote = 'D#'
+        tuningScreen.remove_widget(rootNoteSelector)
+        self.instrument.calculate()
+        neck = Neck(self.instrument)
+        neck.buildNeck(tuningScreen)
+    def callback15(self,instance,tuningScreen,rootNoteSelector):
+        self.instrument.rootNote = 'D '
+        tuningScreen.remove_widget(rootNoteSelector)
+        self.instrument.calculate()
+        neck = Neck(self.instrument)
+        neck.buildNeck(tuningScreen)
+    def callback16(self,instance,tuningScreen,rootNoteSelector):
+        self.instrument.rootNote ="C#"
+        tuningScreen.remove_widget(rootNoteSelector)
+        self.instrument.calculate()
+        neck = Neck(self.instrument)
+        neck.buildNeck(tuningScreen)
+    def callback17(self,instance,tuningScreen,rootNoteSelector):
+        self.instrument.rootNote = 'C '
+        tuningScreen.remove_widget(rootNoteSelector)
+        self.instrument.calculate()
+        neck = Neck(self.instrument)
+        neck.buildNeck(tuningScreen)
+    def callback18(self,instance,tuningScreen,rootNoteSelector):
+        self.instrument.rootNote = 'B '
+        tuningScreen.remove_widget(rootNoteSelector)
+        self.instrument.calculate()
+        neck = Neck(self.instrument)
+        neck.buildNeck(tuningScreen)
+    def callback19(self,instance,tuningScreen,rootNoteSelector):
+        self.instrument.rootNote = 'A#'
+        tuningScreen.remove_widget(rootNoteSelector)
+        self.instrument.calculate()
+        neck = Neck(self.instrument)
+        neck.buildNeck(tuningScreen)
+    def callback20(self,instance,tuningScreen,rootNoteSelector):
+        self.instrument.rootNote = 'A '
+        tuningScreen.remove_widget(rootNoteSelector)
+        self.instrument.calculate()
+        neck = Neck(self.instrument)
+        neck.buildNeck(tuningScreen)
+    def callback21(self,instance,tuningScreen,rootNoteSelector):
+        self.instrument.rootNote = 'G#'
+        tuningScreen.remove_widget(rootNoteSelector)
+        self.instrument.calculate()
+        neck = Neck(self.instrument)
+        neck.buildNeck(tuningScreen)
+    def callback22(self,instance,tuningScreen,rootNoteSelector):
+        self.instrument.rootNote = 'G '
+        tuningScreen.remove_widget(rootNoteSelector)
+        self.instrument.calculate()
+        neck = Neck(self.instrument)
+        neck.buildNeck(tuningScreen)
+    def callback23(self,instance,tuningScreen,rootNoteSelector):
+        self.instrument.rootNote = 'F#'
+        tuningScreen.remove_widget(rootNoteSelector)
+        self.instrument.calculate()
+        neck = Neck(self.instrument)
+        neck.buildNeck(tuningScreen)
+    def callback24(self,instance,tuningScreen,rootNoteSelector):
+        self.instrument.rootNote = 'F '
+        tuningScreen.remove_widget(rootNoteSelector)
+        self.instrument.calculate()
+        neck = Neck(self.instrument)
+        neck.buildNeck(tuningScreen)
+
+    def rootNoteSelect(self, tuningScreen):
+        rootNoteSelector=BoxLayout()
+        btn11=Button(text='E')
+        btn12=Button(text='Eb')
+        btn13=Button(text='D')
+        btn14=Button(text='C#')
+        btn15=Button(text='C')
+        btn16=Button(text='B')
+        btn17=Button(text='Bb')
+        btn18=Button(text='A')
+        btn19=Button(text='G#')
+        btn20=Button(text='G')
+        btn21=Button(text='F#')
+        btn22=Button(text='F')
+        btn11.bind(on_press=lambda instance: self.callback13(instance,tuningScreen,rootNoteSelector))
+        btn12.bind(on_press=lambda instance: self.callback14(instance,tuningScreen,rootNoteSelector))
+        btn13.bind(on_press=lambda instance: self.callback15(instance,tuningScreen,rootNoteSelector))
+        btn14.bind(on_press=lambda instance: self.callback16(instance,tuningScreen,rootNoteSelector))
+        btn15.bind(on_press=lambda instance: self.callback17(instance,tuningScreen,rootNoteSelector))
+        btn16.bind(on_press=lambda instance: self.callback18(instance,tuningScreen,rootNoteSelector))
+        btn17.bind(on_press=lambda instance: self.callback19(instance,tuningScreen,rootNoteSelector))
+        btn18.bind(on_press=lambda instance: self.callback20(instance,tuningScreen,rootNoteSelector))
+        btn19.bind(on_press=lambda instance: self.callback21(instance,tuningScreen,rootNoteSelector))
+        btn20.bind(on_press=lambda instance: self.callback22(instance,tuningScreen,rootNoteSelector))
+        btn21.bind(on_press=lambda instance: self.callback23(instance,tuningScreen,rootNoteSelector))
+        btn22.bind(on_press=lambda instance: self.callback24(instance,tuningScreen,rootNoteSelector))
+        rootNoteSelector.add_widget(btn11)
+        rootNoteSelector.add_widget(btn12)
+        rootNoteSelector.add_widget(btn13)
+        rootNoteSelector.add_widget(btn14)
+        rootNoteSelector.add_widget(btn15)
+        rootNoteSelector.add_widget(btn16)
+        rootNoteSelector.add_widget(btn17)
+        rootNoteSelector.add_widget(btn18)
+        rootNoteSelector.add_widget(btn19)
+        rootNoteSelector.add_widget(btn20)
+        rootNoteSelector.add_widget(btn21)
+        rootNoteSelector.add_widget(btn22)
+        tuningScreen.add_widget(rootNoteSelector)
 class Empty(Widget):
     pass
 class Grid(GridLayout):
@@ -182,15 +319,17 @@ class Grid(GridLayout):
         dic = {0:1, 1:.2,2:.1}
         self.cols_minimum = dic
 class Neck:
-    def buildNeck(self):
-        neckScreen = NeckScreen()
-        st = Instrument.numberOfStrings
-        frets = Instrument.numberOfFrets
+    def __init__(self,instrument):
+        self.instrument=instrument
+    def buildNeck(self, screen):
+        neckScreen = screen
+        st = self.instrument.numberOfStrings
+        frets = self.instrument.numberOfFrets
         neck = Grid(st + 4, frets + 3)
 
         for j in range(frets + 3):
             neck.add_widget(Empty())
-        strings = Instrument.tuning
+        strings = self.instrument.tuning
         notes = []
         # Create Frets dynamically named String'number'Fret'number
         for i in range(st):
@@ -216,16 +355,15 @@ class Neck:
             neck.add_widget(Label(text=str(j)))
         neckScreen.add_widget(neck)
         return neckScreen
-
 class Manager(ScreenManager):
-    screen_one=SetTuningScreen()
-    screen_two=NeckScreen()
+    pass
+
 class FretNinjaApp(App):
     def build(self):
-        sm = Manager()
-        sm.current = 'infoScr'
-        sm.current.create()
-
+        sm = ScreenManager()
+        tune = SetTuningScreen()
+        sm.add_widget(tune.create())
+        sm.remove_widget(tune)
         return sm
 
 if __name__ == '__main__':
