@@ -26,22 +26,42 @@ class Fret0:
     pass
 class Fret(Button):
     baseNote = "G"
+    otherNotes = []
+    highlighted = False
+    unhighlighted = .13
+    def set_note(self):
+        self.note = str(NoteHelper.findNote(self.baseNote, self.fretNumber))
+        self.text = self.note
+        self.background_color = self.setColor(self.unhighlighted)
+
+    def setColor(self, opacity):
+        return NoteHelper.colorNote(self.note, opacity)
+
+    def callback(self,instance):
+        if self.highlighted is False:
+            self.background_color=self.setColor(1)
+            self.highlighted = True
+            for fret in self.otherNotes:
+                if fret.note is self.note:
+                    fret.background_color=self.setColor(1)
+                    fret.highlighted=True
+        else:
+            self.background_color=self.setColor(self.unhighlighted)
+            self.highlighted = False
+            for fret in self.otherNotes:
+                if fret.note is self.note:
+                    fret.background_color = self.setColor(self.unhighlighted)
+                    fret.highlighted=False
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         nameLength = len(self.__class__.__name__)
+        self.bind(on_press=self.callback)
         if self.__class__.__name__[nameLength-2].isdigit():
             self.fretNumber=int(self.__class__.__name__[nameLength-2:nameLength])
         else:
             self.fretNumber=int(self.__class__.__name__[nameLength-1])
         self.stringNumber = int(self.__class__.__name__[6])
-
-    def set_note(self):
-        self.note = str(NoteHelper.findNote(self.baseNote, self.fretNumber))
-        self.text = self.note
-        self.background_color = self.setColor(1)
-
-    def setColor(self, opacity):
-        return NoteHelper.colorNote(self.note, opacity)
 
 class Tuning(DropDown):
     pass
@@ -79,6 +99,7 @@ class Neck:
         for k in range(len(notes)):
             notes[k].baseNote = strings[notes[k].stringNumber - 1]
             notes[k].set_note()
+            notes[k].otherNotes=notes
             if notes[k].fretNumber == 0:
                 neck.add_widget(Label(text=str(notes[k].stringNumber)))
             neck.add_widget(notes[k])
