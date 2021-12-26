@@ -33,14 +33,16 @@ def number_to_note(position):
 
 
 def add(note1, fret):
+    if note1 + fret is 36:
+        return note1
     if fret == 0:
         return note1
     if note1 + fret <= 12:
         return note1 + fret
-    elif (note1 + fret) % 12 != 0:
+    elif (note1 + fret) % 12 is not 0:
         return (note1 + fret) % 12
-    elif note1 + fret == 24:
-        return fret - 12 + note1
+    elif note1 + fret is 24:
+        return fret-12+note1
 
 
 def find_note(open_fret, fret):
@@ -59,7 +61,7 @@ def color_note(note, opacity):
         "D#": (.7765, 1, 0, opacity),
         "E ": (.95686, .262745, .211764, opacity),
         "F ": (1, 0, 1, opacity),
-        "F#": (1, 0, .75, opacity),
+        'F#': (1, 0, .75, opacity),
         "G ": (0, 1, 0, opacity),
         "G#": (0, .75, 0, opacity),
     }
