@@ -3,9 +3,9 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 
 from utilities import NoteHelper
-from Neck import Neck as Neck
+from . Neck import Neck as Neck
 from utilities.Instrument import Instrument as Instrument
-from MainScreen import SetTuningScreen as SetTuningScreen
+from . MainScreen import SetTuningScreen as SetTuningScreen
 
 
 class InstrumentInfo:

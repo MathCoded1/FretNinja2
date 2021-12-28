@@ -1,3 +1,4 @@
+
 #Python Venv
 */env/*
 
@@ -5,6 +6,7 @@
 /dist
 /tmp
 /out-tsc
+*.pyc
 
 # Runtime data
 pids

@@ -21,8 +21,8 @@ class Neck:
         structure = BoxLayout(orientation='vertical')
         neck_screen = screen
         st = self.instrument.number_of_strings
-        frets = self.instrument.number_of_frets
-        neck = Grid(st + 4, frets + 3)
+        fret_number = self.instrument.number_of_frets
+        neck = BoxLayout()
 
         menu = AnchorLayout()
         menu.size_hint = (1, .17)
@@ -30,34 +30,33 @@ class Neck:
         back_button.bind(on_press=lambda instance: self.callback_back(instance, screen, structure))
         menu.add_widget(back_button)
         structure.add_widget(menu)
-
-        for j in range(frets + 3):
-            neck.add_widget(Widget())
         strings = self.instrument.tuning
         notes = []
         # Create Frets dynamically named String'number'Fret'number
-        for i in range(st):
-            for j in range(frets + 1):
-                notes.append(type("String" + str(6 - i) + "Fret" + str(j), (Fret,), {})())
-        # Assign notes and add to neck
-        neck.add_widget(Label(text='#'))
-        for k in range(frets + 1):
-            neck.add_widget(Label(text=str(k)))
-        neck.add_widget(Widget())
+
+        for i in range(fret_number + 1):
+            for j in range(st):
+                notes.append(type("String" + str(6-j) + "Fret" + str(i), (Fret,), {})())
+        fretboard = BoxLayout()
         for note in notes:
             note.base_note = strings[note.string_number - 1]
             note.set_note()
             note.other_notes = notes
-            if note.fret_number is 0:
-                neck.add_widget(Label(text=str(note.string_number)))
-            neck.add_widget(note)
-            if note.fret_number is frets:
-                neck.add_widget(Widget())
-        # Add Lables for frets
-        neck.add_widget(Label(text='#'))
-        for j in range(frets + 1):
-            neck.add_widget(Label(text=str(j)))
+        frets = []
+        fret_wires = []
+        for f in range(fret_number+1):
+            frets.append(BoxLayout(orientation='vertical'))
+            fretboard.add_widget(frets[f])
+            fret_wires.append(Button(text=str(f)+"\n\n\n\n\n\n\n\n\n\n\n\n"+str(f)))
+            fretboard.add_widget(fret_wires[f])
+        for note in notes:
+            frets[note.fret_number].add_widget(note)
+        neck.add_widget(fretboard)
         structure.add_widget(neck)
+        details = Label()
+        structure.add_widget(details)
+        details.text = 'your '+str(self.instrument.instrument_type).lower()+" is in "+\
+                       str(self.instrument.tuning_style).lower()+" "+str(self.instrument.root_note)
         neck_screen.add_widget(structure)
         return neck_screen
 
