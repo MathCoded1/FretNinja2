@@ -7,6 +7,8 @@
 /tmp
 /out-tsc
 *.pyc
+/__pycache__
+__pycache__
 
 # Runtime data
 pids
