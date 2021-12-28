@@ -1,6 +1,6 @@
 from kivy.uix.button import Button
 
-import NoteHelper
+from utilities import NoteHelper
 
 
 class Fret(Button):

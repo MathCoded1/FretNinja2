@@ -1,4 +1,4 @@
-import NoteHelper
+from utilities import NoteHelper
 
 
 class Instrument:
@@ -31,7 +31,8 @@ class Instrument:
             if self.tuning_style is 'OPEN':
                 self.tuning[1] = NoteHelper.number_to_note(NoteHelper.add(NoteHelper.note_to_number(self.tuning[0]), 7))
                 self.tuning[2] = self.tuning[0]
-                self.tuning[3] = NoteHelper.number_to_note(NoteHelper.add(NoteHelper.note_to_number(self.tuning[0]), 16))
+                self.tuning[3] = NoteHelper.number_to_note(
+                    NoteHelper.add(NoteHelper.note_to_number(self.tuning[0]), 16))
                 self.tuning[4] = NoteHelper.number_to_note(NoteHelper.add(NoteHelper.note_to_number(self.tuning[3]), 3))
                 self.tuning[5] = self.tuning[0]
         elif self.instrument_type is 'BASS':
@@ -46,4 +47,5 @@ class Instrument:
             if self.tuning_style is 'OPEN':
                 self.tuning[1] = NoteHelper.number_to_note(NoteHelper.add(NoteHelper.note_to_number(self.tuning[0]), 7))
                 self.tuning[2] = self.tuning[0]
-                self.tuning[3] = NoteHelper.number_to_note(NoteHelper.add(NoteHelper.note_to_number(self.tuning[0]), 16))
+                self.tuning[3] = NoteHelper.number_to_note(
+                    NoteHelper.add(NoteHelper.note_to_number(self.tuning[0]), 16))

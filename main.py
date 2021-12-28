@@ -2,8 +2,8 @@ from kivy.app import App
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.button import Button
 from kivy.uix.screenmanager import ScreenManager
-from InstrumentInfo import InstrumentInfo as InstrumentInfo
-from MainScreen import SetTuningScreen as SetTuningScreen
+from screens.InstrumentInfo import InstrumentInfo as InstrumentInfo
+from screens.MainScreen import SetTuningScreen as SetTuningScreen
 
 
 def create():

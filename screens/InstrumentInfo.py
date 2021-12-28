@@ -2,9 +2,9 @@ from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 
-import NoteHelper
+from utilities import NoteHelper
 from Neck import Neck as Neck
-from Instrument import Instrument as Instrument
+from utilities.Instrument import Instrument as Instrument
 from MainScreen import SetTuningScreen as SetTuningScreen
 
 
