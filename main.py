@@ -1,22 +1,14 @@
 from kivy.app import App
 from kivy.uix.anchorlayout import AnchorLayout
-from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.label import Label
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.widget import Widget
-import NoteHelper
+from kivy.uix.screenmanager import ScreenManager
 from InstrumentInfo import InstrumentInfo as InstrumentInfo
+from MainScreen import SetTuningScreen as SetTuningScreen
+
 
 def create():
     info = InstrumentInfo()
     return info.setup_info()
-
-class Empty(Widget):
-    pass
-
-
 
 
 class Menu(AnchorLayout):
@@ -29,7 +21,6 @@ class Menu(AnchorLayout):
     anchor_y = 'top'
     btn_retune = Button(text='retune')
     # btn_retune.bind(on_press=lambda instance:
-
 
 
 class Manager(ScreenManager):
