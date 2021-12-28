@@ -14,8 +14,8 @@ class Neck:
 
     def callback_back(self, instance, screen, structure):
         screen.remove_widget(structure)
-        # self.instrument_info = InstrumentInfo()
-        self.instrument_info.setup_info_w_screen(screen)
+        if self.instrument.tuning_style is not 'CUSTOM':
+            self.instrument_info.root_note_select(screen)
 
     def build_neck(self, screen):
         structure = BoxLayout(orientation='vertical')
@@ -23,6 +23,7 @@ class Neck:
         st = self.instrument.number_of_strings
         frets = self.instrument.number_of_frets
         neck = Grid(st + 4, frets + 3)
+
         menu = AnchorLayout()
         menu.size_hint = (1, .17)
         back_button = Button(text='back')

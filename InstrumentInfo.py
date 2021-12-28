@@ -156,6 +156,7 @@ class InstrumentInfo:
             neck.build_neck(tuning_screen)
 
     def root_note_select(self, tuning_screen):
+        self.instrument.root_note = ''
         structure = BoxLayout(orientation='vertical')
         w = Label()
         w.text = 'What is your low note?'
@@ -164,10 +165,11 @@ class InstrumentInfo:
         for i in range(12):
             buttons.append(type('btn' + str(i), (Button,), {})())
             buttons[i].text = NoteHelper.number_to_note(i + 1)
-            buttons[i].bind(on_press=lambda instance: self.callback_root_note(instance,
-                                                                              NoteHelper.number_to_note(
-                                                                                  i + 1), tuning_screen,
-                                                                              structure))
+            buttons[i].bind(on_press=lambda instance, bound_i=i: self.callback_root_note(instance,
+                                                                                         NoteHelper.number_to_note(
+                                                                                             bound_i + 1),
+                                                                                         tuning_screen,
+                                                                                         structure))
             root_note_selector.add_widget(buttons[i])
         structure.add_widget(w)
         structure.add_widget(root_note_selector)
@@ -182,10 +184,11 @@ class InstrumentInfo:
         for i in range(12):
             buttons.append(type('btn' + str(i), (Button,), {})())
             buttons[i].text = NoteHelper.number_to_note(i + 1)
-            buttons[i].bind(on_press=lambda instance: self.callback_custom(instance,
-                                                                           NoteHelper.number_to_note(
-                                                                               i + 1), string, tuning_screen,
-                                                                           structure))
+            buttons[i].bind(on_press=lambda instance, bound_i=i: self.callback_custom(instance,
+                                                                                      NoteHelper.number_to_note(
+                                                                                          bound_i + 1), string,
+                                                                                      tuning_screen,
+                                                                                      structure))
             cs_selector.add_widget(buttons[i])
         structure.add_widget(l)
         structure.add_widget(cs_selector)

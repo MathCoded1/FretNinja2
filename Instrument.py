@@ -10,6 +10,7 @@ class Instrument:
     tuning = []
 
     def calculate(self):
+        self.tuning =[]
         for i in range(self.number_of_strings):
             self.tuning.append('')
         self.tuning[0] = self.root_note

@@ -34,7 +34,7 @@ class Fret(Button):
             self.highlighted = False
             for fret in self.other_notes:
                 if fret.note is self.note:
-                    fret.background_color = self.set_color(self.unhighlighted)
+                    fret.background_color = (0,0,0,self.unhighlighted)
                     fret.color = (1, 1, 1, 1)
                     fret.highlighted = False
 
