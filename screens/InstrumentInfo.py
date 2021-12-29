@@ -155,9 +155,16 @@ class InstrumentInfo:
             neck = Neck(self.instrument, self)
             neck.build_neck(tuning_screen)
 
+    def callback_back_from_root_note(self,instance,tuning_screen,structure):
+        tuning_screen.remove_widget(structure)
+        self.tuning_select(tuning_screen)
+
     def root_note_select(self, tuning_screen):
         self.instrument.root_note = ''
         structure = BoxLayout(orientation='vertical')
+        btn = Button(text='Back')
+        btn.bind(on_press=lambda instance: self.callback_back_from_root_note(instance, tuning_screen, structure))
+        structure.add_widget(btn)
         w = Label()
         w.text = 'What is your low note?'
         root_note_selector = BoxLayout()
