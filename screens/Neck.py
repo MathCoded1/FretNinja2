@@ -1,7 +1,6 @@
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.widget import Widget
 from kivy.uix.button import Button
-from kivy.uix.gridlayout import GridLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from utilities.Fret import Fret as Fret
@@ -25,7 +24,7 @@ class Neck:
         if self.instrument.tuning_style is not 'CUSTOM':
             self.instrument_info.root_note_select(screen)
 
-    def callback_fret_wire(self,instance, fret_number, tuning_screen, structure):
+    def callback_fret_wire(self, instance, fret_number, tuning_screen, structure):
         if self.fret_selected is True:
             self.second_fret_number = fret_number
             self.fret_selected = False
@@ -133,13 +132,3 @@ class Neck:
                        str(self.instrument.tuning_style).lower()+" "+str(self.instrument.root_note)
         screen.add_widget(structure)
         return screen
-
-
-class Grid(GridLayout):
-    def __init__(self, rows, columns, **kwargs):
-        super().__init__(**kwargs)
-        self.rows = rows
-        self.cols = columns
-
-        dic = {0: 1, 1: .2, 2: .1}
-        self.cols_minimum = dic

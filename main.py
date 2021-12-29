@@ -29,6 +29,7 @@ class Manager(ScreenManager):
 
 class FretNinjaApp(App):
     def build(self):
+        #self.icon =
         sm = ScreenManager()
         tune = SetTuningScreen()
         sm.add_widget(create())
