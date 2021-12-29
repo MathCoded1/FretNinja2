@@ -13,7 +13,10 @@ class Fret(Button):
     def set_note(self):
         self.note = str(NoteHelper.find_note(self.base_note, self.fret_number))
         self.text = self.note
-        self.background_color = (0, 0, 0, self.unhighlighted)
+        if self.highlighted is False:
+            self.background_color = (0, 0, 0, self.unhighlighted)
+        else:
+            self.background_color = self.set_color(1)
 
     def set_color(self, opacity):
         return NoteHelper.color_note(self.note, opacity)
