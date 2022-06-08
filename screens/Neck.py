@@ -3,7 +3,7 @@ from kivy.uix.widget import Widget
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
-from utilities.Fret import Fret as Fret
+from Instrument.Fret import Fret as Fret
 
 
 class Neck:
@@ -105,7 +105,7 @@ class Neck:
         menu.add_widget(back_button)
         structure.add_widget(menu)
         strings = self.instrument.tuning
-        # Create Frets dynamically named String'number'Fret'number
+        # Create Frets dynamically named String<number>Fret<number>
         if self.built is False:
             self.build_frets(self.instrument.number_of_frets, self.instrument.number_of_strings)
             self.built = True

@@ -82,4 +82,8 @@ def get_frequency(note, number):
             'A#': 29.14,
             'B ': 30.87
             }
-    return base.get(note)*(number**2)
+    return base.get(note)*(int(number)**2)
+
+
+def get_frequency_from_distance(starting_note, distance):
+    return starting_note*(2**(distance/12))

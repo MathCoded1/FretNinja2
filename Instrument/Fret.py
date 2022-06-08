@@ -1,6 +1,6 @@
 from kivy.uix.button import Button
 
-from utilities import NoteHelper
+from Instrument import NoteHelper
 
 
 class Fret(Button):
@@ -9,12 +9,10 @@ class Fret(Button):
     highlighted = False
     unhighlighted = .13
     note = ''
-    frequency = None
-    frequency_number = None
+    sharpInsteadOfFlat = True
 
     def set_note(self):
         self.note = str(NoteHelper.find_note(self.base_note, self.fret_number))
-        self.frequency = NoteHelper.get_frequency(self.note,self.frequency_number)
         self.text = self.note
         if self.highlighted is False:
             self.background_color = (0, 0, 0, self.unhighlighted)
@@ -54,3 +52,12 @@ class Fret(Button):
             self.fret_number = int(self.__class__.__name__[name_length - 1])
         self.string_number = int(self.__class__.__name__[6])
         self.background_normal = ''
+
+    def switchFlatSharp(self):
+        if len(self.note) is not 1:
+            if self.sharpInsteadOfFlat is True:
+                self.sharpInsteadOfFlat = False
+                self.text = self.note[1]+"b"
+            else:
+                self.sharpInsteadOfFlat = True
+                self.text = self.note

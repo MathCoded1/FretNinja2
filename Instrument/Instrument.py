@@ -1,4 +1,4 @@
-from utilities import NoteHelper
+from Instrument import NoteHelper
 
 
 class Instrument:
@@ -9,15 +9,18 @@ class Instrument:
     root_note = ''
     tuning = []
     root_note_actual = None
-    notes = [[]]
+
+    def noteChanger(self, a, b):
+        pass
 
     def calculate(self):
+        self.notes = [[''] * (self.number_of_frets+1)]*self.number_of_strings
         self.tuning = []
         for i in range(self.number_of_strings):
             self.tuning.append('')
         self.tuning[0] = self.root_note
         if self.instrument_type is 'GUITAR':
-            self.root_note_actual = self.root_note+str(2)
+
             if self.tuning_style is 'STANDARD':
                 self.tuning[1] = NoteHelper.find_note(self.tuning[0], 5)
                 self.tuning[2] = NoteHelper.number_to_note(NoteHelper.add(NoteHelper.note_to_number(self.tuning[1]), 5))
@@ -52,8 +55,7 @@ class Instrument:
                 self.tuning[2] = self.tuning[0]
                 self.tuning[3] = NoteHelper.number_to_note(
                     NoteHelper.add(NoteHelper.note_to_number(self.tuning[0]), 16))
+        self.calculate_frequency()
 
     def calculate_frequency(self):
-        for string in range(self.number_of_strings):
-            for fret in range(self.number_of_frets+1):
-                self.notes[string][fret]=NoteHelper.note_to_number(self.tuning[string])
+        pass
