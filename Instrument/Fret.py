@@ -54,7 +54,7 @@ class Fret(Button):
         self.background_normal = ''
 
     def switchFlatSharp(self):
-        if len(self.note) is not 1:
+        if len(self.note) != 1:
             if self.sharpInsteadOfFlat is True:
                 self.sharpInsteadOfFlat = False
                 self.text = self.note[1]+"b"
